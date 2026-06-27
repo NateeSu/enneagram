@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Type 8 The Challenger character</title>
+  <desc id="desc">Crimson warrior leader with protective gauntlets and fire motif.</desc>
+  <defs><linearGradient id="g" x1="40" x2="280" y1="20" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#fee2e2"/><stop offset="1" stop-color="#991b1b"/></linearGradient></defs>
+  <circle cx="160" cy="160" r="132" fill="url(#g)" opacity=".35"/>
+  <path fill="#fff1f2" d="M83 236c17-58 46-88 77-88s60 30 77 88c-43 30-111 30-154 0Z"/>
+  <circle cx="160" cy="112" r="45" fill="#edc3ac"/>
+  <path fill="#450a0a" d="M111 109c9-43 45-62 82-38 17 11 24 30 18 56-31-22-68-23-100-18Z"/>
+  <path fill="#dc2626" d="M103 228h114l-20 50h-74l-20-50Z"/>
+  <path fill="#ef4444" d="M256 76c38 45 23 80-11 91 10-26-4-39-12-54-8-16 5-29 23-37Z"/>
+  <path fill="none" stroke="#7f1d1d" stroke-linecap="round" stroke-width="10" d="M74 205c34 28 138 28 172 0"/>
+  <path stroke="#450a0a" stroke-linecap="round" stroke-width="8" d="M138 130c12 8 32 8 44 0"/>
+</svg>

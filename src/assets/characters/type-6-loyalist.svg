@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc">
+  <title id="title">Type 6 The Loyalist character</title>
+  <desc id="desc">Indigo strategist companion with lantern and shield motif.</desc>
+  <defs><linearGradient id="g" x1="42" x2="278" y1="22" y2="298" gradientUnits="userSpaceOnUse"><stop stop-color="#e0e7ff"/><stop offset="1" stop-color="#4f46e5"/></linearGradient></defs>
+  <circle cx="160" cy="160" r="132" fill="url(#g)" opacity=".35"/>
+  <path fill="#eef2ff" d="M88 236c13-56 41-87 72-87s59 31 72 87c-42 29-102 29-144 0Z"/>
+  <circle cx="160" cy="112" r="44" fill="#edc9b8"/>
+  <path fill="#312e81" d="M113 108c7-40 38-60 76-42 20 10 28 32 23 58-30-19-66-22-99-16Z"/>
+  <path fill="#4f46e5" d="M106 228h108l-16 50h-76l-16-50Z"/>
+  <path fill="#c7d2fe" stroke="#3730a3" stroke-width="6" d="M244 90 282 106v32c0 25-15 46-38 56-23-10-38-31-38-56v-32l38-16Z"/>
+  <path fill="#fef3c7" stroke="#4f46e5" stroke-width="5" d="M67 108h36v54H67z"/>
+  <path stroke="#312e81" stroke-linecap="round" stroke-width="7" d="M140 130c12 8 28 8 40 0"/>
+</svg>
