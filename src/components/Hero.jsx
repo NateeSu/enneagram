@@ -24,7 +24,12 @@ export default function Hero({ onStart }) {
       </div>
       <div className="hero-panel" aria-label="ตัวอย่าง type cards">
         <div className="profile-card">
-          <TypeCharacter type={enneagramTypes[4]} gender="male" />
+          <TypeCharacter
+            type={enneagramTypes[4]}
+            fetchPriority="high"
+            gender="male"
+            loading="eager"
+          />
           <div>
             <p className="mini-label">ตัวอย่างผลลัพธ์</p>
             <h2>Type 5</h2>

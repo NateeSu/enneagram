@@ -220,12 +220,24 @@ main {
 
 .profile-card {
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: minmax(128px, 168px) minmax(0, 1fr);
   gap: 20px;
   align-items: center;
+  overflow: hidden;
   border-radius: 28px;
   background: linear-gradient(135deg, rgba(15, 118, 110, .14), rgba(236, 72, 153, .12));
   padding: 18px;
+}
+
+.profile-card .type-character--large {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 22px;
+}
+
+.profile-card > div:last-child {
+  min-width: 0;
 }
 
 .mini-label {
@@ -242,6 +254,11 @@ main {
   color: #24124d;
   font-size: clamp(2rem, 4vw, 3.4rem);
   letter-spacing: 0;
+}
+
+.profile-card h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  line-height: 1.05;
 }
 
 .profile-card p,
