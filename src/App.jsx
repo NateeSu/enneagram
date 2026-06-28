@@ -11,6 +11,7 @@ import TypeCharacter from './components/TypeCharacter'
 import TypeDetail from './components/TypeDetail'
 import { enneagramTypes, typesById } from './data/enneagramTypes'
 import { questions } from './data/questions'
+import { canAdvanceQuiz, getIndexAfterAnswer, getIndexAfterNext } from './utils/quizNavigation'
 import { buildQuizResult } from './utils/resultAnalyzer'
 import './styles.css'
 
@@ -41,16 +42,23 @@ function App() {
   function answerQuestion(value) {
     const nextAnswers = { ...answers, [questions[currentIndex].id]: value }
     setAnswers(nextAnswers)
+    setCurrentIndex((index) => getIndexAfterAnswer(index))
+  }
+
+  function goToNextQuestion() {
+    const currentQuestion = questions[currentIndex]
+    const currentAnswer = answers[currentQuestion.id]
+    if (!canAdvanceQuiz(currentAnswer)) return
 
     if (currentIndex === questions.length - 1) {
-      localStorage.setItem('enneaquest:answers', JSON.stringify(nextAnswers))
+      localStorage.setItem('enneaquest:answers', JSON.stringify(answers))
       localStorage.setItem('enneaquest:gender', gender)
       setView('result')
       window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
 
-    setCurrentIndex((index) => index + 1)
+    setCurrentIndex((index) => getIndexAfterNext(index, questions.length))
   }
 
   function retakeQuiz() {
@@ -64,6 +72,9 @@ function App() {
   }
 
   const resultType = analysis ? typesById[analysis.mainType] : null
+  const currentQuestion = questions[currentIndex]
+  const currentAnswer = answers[currentQuestion.id]
+  const canGoNext = canAdvanceQuiz(currentAnswer)
 
   return (
     <div className="app-shell">
@@ -119,8 +130,8 @@ function App() {
           <section className="quiz-stage" id="quiz">
             <ProgressBar current={currentIndex + 1} total={questions.length} />
             <QuizQuestion
-              question={questions[currentIndex]}
-              value={answers[questions[currentIndex].id]}
+              question={currentQuestion}
+              value={currentAnswer}
               onAnswer={answerQuestion}
             />
             <div className="quiz-controls">
@@ -132,7 +143,16 @@ function App() {
               >
                 ย้อนกลับ
               </button>
-              <span>{questions[currentIndex].category === 'instinct' ? 'Stage 2: Instinct' : 'Stage 1: Core Type'}</span>
+              <span>{currentQuestion.category === 'instinct' ? 'Stage 2: Instinct' : 'Stage 1: Core Type'}</span>
+              <button
+                className="primary-button"
+                data-testid="next-question"
+                type="button"
+                disabled={!canGoNext}
+                onClick={goToNextQuestion}
+              >
+                {currentIndex === questions.length - 1 ? 'ดูผลลัพธ์' : 'ถัดไป'}
+              </button>
             </div>
           </section>
         )}
