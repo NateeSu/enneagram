@@ -384,6 +384,20 @@ main {
   line-height: 1.7;
 }
 
+.type-card-characters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.type-card-characters .type-character--medium {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
+
 .quiz-intro {
   max-width: 820px;
   margin: 64px auto;
@@ -394,6 +408,58 @@ main {
   gap: 8px;
   padding-left: 22px;
   margin: 20px 0 26px;
+}
+
+.gender-picker {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.gender-picker h3 {
+  margin: 0;
+  color: #24124d;
+  font-size: 1.35rem;
+}
+
+.gender-picker p {
+  margin: 0;
+}
+
+.gender-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.gender-option {
+  display: grid;
+  gap: 6px;
+  min-height: 112px;
+  border: 1px solid #ede9fe;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .78);
+  color: #4b5563;
+  padding: 16px;
+  text-align: left;
+  transition: .18s ease;
+}
+
+.gender-option strong {
+  color: #24124d;
+  font-size: 1.2rem;
+}
+
+.gender-option span {
+  color: #6b7280;
+  line-height: 1.55;
+}
+
+.gender-option:hover,
+.gender-option.is-selected {
+  border-color: #7c3aed;
+  background: linear-gradient(135deg, rgba(124, 58, 237, .12), rgba(236, 72, 153, .12));
+  transform: translateY(-2px);
 }
 
 .quiz-stage {
@@ -693,6 +759,10 @@ main {
   }
 
   .likert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gender-options {
     grid-template-columns: 1fr;
   }
 

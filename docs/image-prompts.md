@@ -1,6 +1,6 @@
 # EnneaQuest Character Image Prompts
 
-ใช้ prompt เหล่านี้เพื่อสร้างซ้ำหรือปรับเวอร์ชันภาพตัวละครใน `src/assets/characters/` ได้ในอนาคต ห้ามใช้ชื่อศิลปินหรือสตูดิโอเฉพาะเจาะจง และควรสร้างเป็น original characters เท่านั้น
+ใช้ prompt เหล่านี้เพื่อสร้างซ้ำหรือปรับเวอร์ชันภาพตัวละครใน `src/assets/characters/` ได้ในอนาคต ห้ามใช้ชื่อศิลปินหรือสตูดิโอเฉพาะเจาะจง และควรสร้างเป็น original characters เท่านั้น สำหรับแต่ละ Type ให้สร้างทั้งเวอร์ชัน `female` และ `male` โดยคง motif, palette, และบุคลิกหลักของ Type เดียวกันไว้
 
 ## Type 1 – The Reformer
 

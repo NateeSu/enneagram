@@ -16,8 +16,10 @@ import './styles.css'
 
 function App() {
   const savedAnswers = localStorage.getItem('enneaquest:answers')
-  const [view, setView] = useState(savedAnswers ? 'result' : 'home')
+  const savedGender = localStorage.getItem('enneaquest:gender')
+  const [view, setView] = useState(savedAnswers && savedGender ? 'result' : 'home')
   const [answers, setAnswers] = useState(() => (savedAnswers ? JSON.parse(savedAnswers) : {}))
+  const [gender, setGender] = useState(savedGender ?? '')
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const analysis = useMemo(() => {
@@ -31,6 +33,7 @@ function App() {
   }
 
   function beginQuestions() {
+    if (!gender) return
     setCurrentIndex(0)
     setView('quiz')
   }
@@ -41,6 +44,7 @@ function App() {
 
     if (currentIndex === questions.length - 1) {
       localStorage.setItem('enneaquest:answers', JSON.stringify(nextAnswers))
+      localStorage.setItem('enneaquest:gender', gender)
       setView('result')
       window.scrollTo({ top: 0, behavior: 'smooth' })
       return
@@ -52,7 +56,9 @@ function App() {
   function retakeQuiz() {
     if (!window.confirm('เริ่มทำใหม่และลบผลเดิมใช่ไหม?')) return
     localStorage.removeItem('enneaquest:answers')
+    localStorage.removeItem('enneaquest:gender')
     setAnswers({})
+    setGender('')
     setCurrentIndex(0)
     setView('intro')
   }
@@ -91,7 +97,10 @@ function App() {
               <div className="type-grid">
                 {enneagramTypes.map((type) => (
                   <article className="type-card" key={type.id} style={{ '--type-color': type.color, '--type-accent': type.accent }}>
-                    <TypeCharacter type={type} size="medium" />
+                    <div className="type-card-characters" aria-label={`Type ${type.id} male and female characters`}>
+                      <TypeCharacter type={type} gender="female" size="medium" />
+                      <TypeCharacter type={type} gender="male" size="medium" />
+                    </div>
                     <span>Type {type.id}</span>
                     <h3>{type.shortName}</h3>
                     <p>{type.tagline}</p>
@@ -102,7 +111,9 @@ function App() {
           </>
         )}
 
-        {view === 'intro' && <QuizIntro onBegin={beginQuestions} />}
+        {view === 'intro' && (
+          <QuizIntro gender={gender} onBegin={beginQuestions} onGenderChange={setGender} />
+        )}
 
         {view === 'quiz' && (
           <section className="quiz-stage" id="quiz">
@@ -128,7 +139,7 @@ function App() {
 
         {view === 'result' && analysis && resultType && (
           <section className="result-page">
-            <ResultCard type={resultType} analysis={analysis} />
+            <ResultCard type={resultType} analysis={analysis} gender={gender} />
             <ShareCard type={resultType} />
             <TypeDetail type={resultType} analysis={analysis} types={enneagramTypes} />
             <div className="retake-row">

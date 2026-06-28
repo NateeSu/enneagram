@@ -24,7 +24,7 @@ export default function Hero({ onStart }) {
       </div>
       <div className="hero-panel" aria-label="ตัวอย่าง type cards">
         <div className="profile-card">
-          <TypeCharacter type={enneagramTypes[4]} />
+          <TypeCharacter type={enneagramTypes[4]} gender="male" />
           <div>
             <p className="mini-label">ตัวอย่างผลลัพธ์</p>
             <h2>Type 5</h2>
@@ -34,7 +34,7 @@ export default function Hero({ onStart }) {
         <div className="mini-type-grid">
           {enneagramTypes.slice(0, 9).map((type) => (
             <div className="mini-type-card" key={type.id} style={{ '--type-color': type.color }}>
-              <TypeCharacter type={type} size="small" />
+              <TypeCharacter type={type} gender={type.id % 2 === 0 ? 'female' : 'male'} size="small" />
               <span>{type.id}</span>
             </div>
           ))}
