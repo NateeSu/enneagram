@@ -254,20 +254,26 @@ main {
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 24px;
   filter: drop-shadow(0 18px 26px rgba(79, 70, 229, .2));
+  object-fit: cover;
 }
 
 .type-character--small {
-  width: 54px;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
 }
 
 .type-character--medium {
   width: min(140px, 60vw);
+  height: min(140px, 60vw);
   margin: 0 auto;
 }
 
 .type-character--large {
   width: min(260px, 72vw);
+  height: min(260px, 72vw);
 }
 
 .mini-type-grid {
@@ -286,6 +292,7 @@ main {
   border-radius: 20px;
   background: color-mix(in srgb, var(--type-color) 10%, white);
   padding: 10px;
+  overflow: hidden;
 }
 
 .mini-type-card span {

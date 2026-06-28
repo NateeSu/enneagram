@@ -1,12 +1,12 @@
-import type1 from '../assets/characters/type-1-reformer.svg'
-import type2 from '../assets/characters/type-2-helper.svg'
-import type3 from '../assets/characters/type-3-achiever.svg'
-import type4 from '../assets/characters/type-4-individualist.svg'
-import type5 from '../assets/characters/type-5-investigator.svg'
-import type6 from '../assets/characters/type-6-loyalist.svg'
-import type7 from '../assets/characters/type-7-enthusiast.svg'
-import type8 from '../assets/characters/type-8-challenger.svg'
-import type9 from '../assets/characters/type-9-peacemaker.svg'
+import type1 from '../assets/characters/type-1-reformer.png'
+import type2 from '../assets/characters/type-2-helper.png'
+import type3 from '../assets/characters/type-3-achiever.png'
+import type4 from '../assets/characters/type-4-individualist.png'
+import type5 from '../assets/characters/type-5-investigator.png'
+import type6 from '../assets/characters/type-6-loyalist.png'
+import type7 from '../assets/characters/type-7-enthusiast.png'
+import type8 from '../assets/characters/type-8-challenger.png'
+import type9 from '../assets/characters/type-9-peacemaker.png'
 
 export const characterImages = {
   1: type1,
